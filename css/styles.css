@@ -1,23 +1,42 @@
 /* ====================================
-// 1. Base / Utilities (Gold & Black Theme)
+// 1. Base / Utilities (Gold & Black Theme + Japanese Font)
 // ==================================== */
 :root {
     /* 和の高級感を演出するカラーパレット */
     --color-gold: #FFD700;        /* 黄金色 (アクセントカラー) */
     --color-black: #101010;       /* 深みのある黒 (メイン背景) */
     --color-dark-gray: #1e1e1e;   /* カード/ヘッダーの表面色 */
-    --color-white: #f0f0f0;       /* メインテキスト色 */
+    --color-white: #f0f0f0;       /* メインテキスト色
 
     --color-primary: var(--color-gold);
-    --color-bg: var(--color-black);
     --color-surface: var(--color-dark-gray);
+    --color-bg: var(--color-black);
 
-    /* ... 省略 ... */
+    /* 【フォント設定】 */
+    --font-family-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --font-family-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+
+    /* スペーシング */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+
+    /* ブレークポイント */
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
 }
 
-/* メインの背景を黒、文字を白（またはゴールド）に設定 */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* メインのフォント、背景、文字色を指定 */
 body {
-    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; /* 和風に合うフォント */
+    font-family: var(--font-family-serif); /* メインは明朝体ベース */
     color: var(--color-white);
     background-color: var(--color-bg);
     line-height: 1.8;
@@ -30,28 +49,47 @@ a {
 }
 
 a:hover {
-    color: var(--color-white); /* ホバーで色が反転する効果 */
+    color: var(--color-white);
+}
+
+/* 汎用コンテナ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
 /* セクションの共通スタイル */
 .section {
     padding: var(--spacing-xl) 0;
     text-align: center;
-    border-top: 1px solid rgba(255, 215, 0, 0.1); /* セクションの区切りに控えめなゴールドライン */
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .section h2 {
+    /* 明朝体の見出しを強調 */
+    font-family: var(--font-family-serif);
+    font-weight: 700;
+
     margin-bottom: var(--spacing-lg);
     font-size: 2.2rem;
     color: var(--color-primary);
-    letter-spacing: 0.1em; /* 和の高級感を出すための字間調整 */
-    font-weight: normal;
+    letter-spacing: 0.1em;
 }
 
-/* 商品グリッド (レスポンシブ対応は維持) */
+/* 商品グリッド (レスポンシブ対応) */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
     padding: var(--spacing-md) 0;
+}
+
+/* フッター */
+.footer {
+    background-color: var(--color-surface);
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+    font-size: 0.8rem;
+    color: #888;
 }
