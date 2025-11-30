@@ -1,0 +1,141 @@
+/* ====================================
+// 3. Component: Product Card (BEM: product-card)
+// ==================================== */
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image-wrapper {
+    position: relative;
+    padding-top: 66.66%; /* 3:2 のアスペクト比を維持 */
+    overflow: hidden;
+}
+
+.product-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-card__image {
+    transform: scale(1.05);
+}
+
+.product-card__content {
+    padding: var(--spacing-md);
+}
+
+.product-card__title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.product-card__price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-card__description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: var(--spacing-md);
+    min-height: 4.5em; /* 説明文の行数を揃えるための工夫 */
+}
+
+/* アクション・ステータスエリア */
+.product-card__status-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid #eee;
+}
+
+/* ステータスバッジ */
+.product-card__status {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    font-weight: bold;
+    white-space: nowrap; /* テキストの折り返しを防ぐ */
+}
+
+.product-card__status--available {
+    background-color: var(--color-secondary);
+    color: #fff;
+}
+
+.product-card__status--sold-out {
+    background-color: #e74c3c; /* 赤 */
+    color: #fff;
+}
+
+.product-card__status--preorder {
+    background-color: #3498db; /* 青 */
+    color: #fff;
+}
+
+/* アクションボタン */
+.product-card__action-button {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    flex-shrink: 0; /* スペースが不足しても縮まない */
+}
+
+.product-card__action-button:hover:not(:disabled) {
+    background-color: #d35400; /* 少し濃い色 */
+}
+
+/* ====================================
+// 3. Component: Product Card - Modifiers
+// ==================================== */
+
+/* 在庫切れ/無効状態 (カード全体) */
+.product-card--disabled {
+    opacity: 0.6;
+    pointer-events: none; /* クリック無効化 */
+}
+
+/* 無効化されたアクションボタン */
+.product-card__action-button--disabled {
+    background-color: #bdc3c7; /* グレー */
+    cursor: not-allowed;
+}
+
+/* 予約限定バッジ (画像上に表示) */
+.product-card__badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: #f1c40f; /* 黄色 */
+    color: var(--color-text);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 5;
+}

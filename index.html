@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍱 お弁当屋 - [お店の名前]</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/product-card.css">
+    </head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__logo">
+                <a href="/">[お店の名前]</a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#menu" class="header__nav-link">メニュー</a></li>
+                    <li class="header__nav-item"><a href="#about" class="header__nav-link">お店について</a></li>
+                    <li class="header__nav-item"><a href="#contact" class="header__nav-link">お問い合わせ</a></li>
+                    <li class="header__nav-item header__nav-item--placeholder"></li>
+                    <li class="header__nav-item header__nav-item--placeholder"></li>
+                    <li class="header__nav-item header__nav-item--placeholder"></li>
+                </ul>
+            </nav>
+            <button class="header__toggle-button" aria-label="メニューを開く/閉じる">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="menu" class="section section--menu">
+            <div class="container">
+                <h2>人気のお弁当</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="img/bento1.jpg" alt="特選幕の内弁当" class="product-card__image">
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">特選幕の内弁当</h3>
+                            <p class="product-card__price">¥800 (税込)</p>
+                            <p class="product-card__description">厳選された食材をふんだんに使った定番の一品です。</p>
+                            <div class="product-card__status-area">
+                                <span class="product-card__status product-card__status--available">販売中</span>
+                                <button class="product-card__action-button">注文する</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card product-card--disabled">
+                        <div class="product-card__image-wrapper">
+                            <img src="img/bento2.jpg" alt="日替わりヘルシー弁当" class="product-card__image">
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">日替わりヘルシー弁当</h3>
+                            <p class="product-card__price">¥750 (税込)</p>
+                            <p class="product-card__description">カロリー控えめで毎日変わる健康志向のお弁当。</p>
+                            <div class="product-card__status-area">
+                                <span class="product-card__status product-card__status--sold-out">本日分は完売</span>
+                                <button class="product-card__action-button product-card__action-button--disabled" disabled>予約する</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img src="img/bento3.jpg" alt="豪華海鮮ちらし寿司" class="product-card__image">
+                            <div class="product-card__badge product-card__badge--preorder">予約限定</div>
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">豪華海鮮ちらし寿司</h3>
+                            <p class="product-card__price">¥1,500 (税込)</p>
+                            <p class="product-card__description">週末限定の贅沢な海鮮弁当です。</p>
+                            <div class="product-card__status-area">
+                                <span class="product-card__status product-card__status--preorder">3日前まで受付</span>
+                                <button class="product-card__action-button product-card__action-button--preorder">予約に進む</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+            </div>
+        </section>
+
+        <section id="about" class="section section--about">...</section>
+        <section id="contact" class="section section--contact">...</section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 [お店の名前]. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
