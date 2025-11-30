@@ -6,7 +6,7 @@
     --color-gold: #FFD700;        /* 黄金色 (アクセントカラー) */
     --color-black: #101010;       /* 深みのある黒 (メイン背景) */
     --color-dark-gray: #1e1e1e;   /* カード/ヘッダーの表面色 */
-    --color-white: #f0f0f0;       /* メインテキスト色
+    --color-white: #f0f0f0;       /* メインテキスト色 */
 
     --color-primary: var(--color-gold);
     --color-surface: var(--color-dark-gray);
