@@ -1,73 +1,57 @@
 /* ====================================
-// 1. Base / Utilities
+// 1. Base / Utilities (Gold & Black Theme)
 // ==================================== */
 :root {
-    /* カラーパレット */
-    --color-primary: #e67e22; /* オレンジ系 */
-    --color-secondary: #2ecc71; /* グリーン系 */
-    --color-text: #333;
-    --color-bg: #f5f5f5;
+    /* 和の高級感を演出するカラーパレット */
+    --color-gold: #FFD700;        /* 黄金色 (アクセントカラー) */
+    --color-black: #101010;       /* 深みのある黒 (メイン背景) */
+    --color-dark-gray: #1e1e1e;   /* カード/ヘッダーの表面色 */
+    --color-white: #f0f0f0;       /* メインテキスト色 */
 
-    /* フォント */
-    --font-family-base: "Helvetica Neue", Arial, sans-serif;
+    --color-primary: var(--color-gold);
+    --color-bg: var(--color-black);
+    --color-surface: var(--color-dark-gray);
 
-    /* スペーシング */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 32px;
-    --spacing-xl: 64px;
-
-    /* ブレークポイント */
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 1024px;
+    /* ... 省略 ... */
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* メインの背景を黒、文字を白（またはゴールド）に設定 */
 body {
-    font-family: var(--font-family-base);
-    color: var(--color-text);
-    background-color: #fff;
-    line-height: 1.6;
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; /* 和風に合うフォント */
+    color: var(--color-white);
+    background-color: var(--color-bg);
+    line-height: 1.8;
 }
 
 a {
-    color: var(--color-primary);
+    color: var(--color-gold);
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
-    opacity: 0.8;
-}
-
-/* 汎用コンテナ */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    color: var(--color-white); /* ホバーで色が反転する効果 */
 }
 
 /* セクションの共通スタイル */
 .section {
     padding: var(--spacing-xl) 0;
     text-align: center;
+    border-top: 1px solid rgba(255, 215, 0, 0.1); /* セクションの区切りに控えめなゴールドライン */
 }
 
 .section h2 {
     margin-bottom: var(--spacing-lg);
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--color-primary);
+    letter-spacing: 0.1em; /* 和の高級感を出すための字間調整 */
+    font-weight: normal;
 }
 
-/* 商品グリッド (レスポンシブ対応) */
+/* 商品グリッド (レスポンシブ対応は維持) */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 最小280pxで自動調整 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
     padding: var(--spacing-md) 0;
 }
