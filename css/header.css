@@ -1,12 +1,22 @@
 /* ====================================
 // 2. Component: Header (BEM: header)
+// 改善：和の高級感を出すため、メニューを中央に寄せ、区切り線を追加
 // ==================================== */
 .header {
     background-color: var(--color-surface);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* 深い影 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .header__logo a {
@@ -16,28 +26,116 @@
     letter-spacing: 0.15em;
 }
 
+/* --- PC表示時のナビゲーション調整 --- */
 .header__nav-list {
-    /* 拡張性を考慮したスペースを維持 */
-    min-width: 600px;
+    list-style: none;
+    /* ナビゲーションを右端ではなく、中央にまとめるために調整 */
+    display: flex;
+    gap: 0; /* 項目間のギャップを無くす */
+    min-width: 450px; /* ナビゲーションの最小幅を調整 */
+    max-width: 600px; /* 最大幅を設定して広がりすぎを防ぐ */
+    margin-left: auto; /* 右に寄せる */
 }
 
+.header__nav-item {
+    /* 項目間の縦区切り線（パイプ）を追加 */
+    border-right: 1px solid rgba(255, 215, 0, 0.3);
+    flex-grow: 0; /* 均等な幅を無効化 */
+}
+
+/* 最後の項目から区切り線を削除 */
+.header__nav-item:last-of-type {
+    border-right: none;
+}
+
+/* リンクエリアを均等に設定 */
 .header__nav-link {
-    color: var(--color-white);
-    /* 日本語メニューに合うようフォントサイズを調整 */
-    font-size: 1rem;
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-lg); /* 左右のパディングを増やして区切り線を強調 */
     font-weight: 300;
+    color: var(--color-white);
+    transition: color 0.3s;
 }
 
 .header__nav-link:hover {
     color: var(--color-gold);
-    /* ホバー時に下線アニメーションなどを追加するとよりリッチに */
 }
 
-/* ... モバイル用CSSは前コードのロジックを踏襲 ... */
-/* モバイル時のナビゲーションもダークカラーを適用 */
+/* 将来追加される項目用のプレースホルダーを非表示 (PC) */
+/* プレースホルダーにもアイテムの幅を適用して非表示にする */
+.header__nav-item--placeholder {
+    display: none;
+}
+/* ---------------------------------- */
+
+
+/* トグルボタン（モバイル用） */
+.header__toggle-button {
+    display: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+}
+
+.header__toggle-button span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--color-gold); /* ゴールドに変更 */
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* ====================================
+// 2. Component: Header - Responsive
+// ==================================== */
 @media (max-width: var(--breakpoint-md)) {
+    /* モバイル・タブレット */
     .header__nav {
-        background-color: var(--color-dark-gray);
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-dark-gray); /* ダークカラーを適用 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        padding: var(--spacing-md) 0;
     }
-    /* ... 省略 ... */
+
+    .header__nav-list {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        min-width: auto;
+        max-width: none;
+    }
+
+    /* モバイルでは区切り線をリセット */
+    .header__nav-item {
+        border-right: none;
+        border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
+    }
+
+    .header__nav-item:last-of-type {
+        border-bottom: none;
+    }
+
+    .header__nav-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    /* モバイルではプレースホルダーを表示 (将来の追加項目) */
+    .header__nav-item--placeholder {
+        display: block;
+        padding-top: var(--spacing-sm);
+        /* わかりやすいようにプレースホルダーのスタイルを少し変える */
+        color: #666;
+        font-size: 0.9rem;
+        text-align: center;
+        border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
+    }
+
+    .header__toggle-button {
+        display: block;
+    }
 }
