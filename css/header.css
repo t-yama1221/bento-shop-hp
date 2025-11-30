@@ -20,6 +20,7 @@
 }
 
 .header__logo a {
+    font-family: var(--font-family-serif);
     font-size: 2rem;
     font-weight: bold;
     color: var(--color-gold);
@@ -29,18 +30,18 @@
 /* --- PC表示時のナビゲーション調整 --- */
 .header__nav-list {
     list-style: none;
-    /* ナビゲーションを右端ではなく、中央にまとめるために調整 */
     display: flex;
-    gap: 0; /* 項目間のギャップを無くす */
-    min-width: 450px; /* ナビゲーションの最小幅を調整 */
-    max-width: 600px; /* 最大幅を設定して広がりすぎを防ぐ */
-    margin-left: auto; /* 右に寄せる */
+    gap: 0;
+    min-width: 450px;
+    max-width: 600px;
+    margin-left: auto;
 }
 
 .header__nav-item {
     /* 項目間の縦区切り線（パイプ）を追加 */
     border-right: 1px solid rgba(255, 215, 0, 0.3);
-    flex-grow: 0; /* 均等な幅を無効化 */
+    flex-grow: 0;
+    text-align: center;
 }
 
 /* 最後の項目から区切り線を削除 */
@@ -51,7 +52,7 @@
 /* リンクエリアを均等に設定 */
 .header__nav-link {
     display: block;
-    padding: var(--spacing-sm) var(--spacing-lg); /* 左右のパディングを増やして区切り線を強調 */
+    padding: var(--spacing-sm) var(--spacing-lg);
     font-weight: 300;
     color: var(--color-white);
     transition: color 0.3s;
@@ -62,7 +63,6 @@
 }
 
 /* 将来追加される項目用のプレースホルダーを非表示 (PC) */
-/* プレースホルダーにもアイテムの幅を適用して非表示にする */
 .header__nav-item--placeholder {
     display: none;
 }
@@ -82,7 +82,7 @@
     display: block;
     width: 25px;
     height: 3px;
-    background: var(--color-gold); /* ゴールドに変更 */
+    background: var(--color-gold);
     margin: 5px 0;
     transition: 0.3s;
 }
@@ -98,7 +98,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--color-dark-gray); /* ダークカラーを適用 */
+        background-color: var(--color-dark-gray);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
         padding: var(--spacing-md) 0;
     }
@@ -128,7 +128,6 @@
     .header__nav-item--placeholder {
         display: block;
         padding-top: var(--spacing-sm);
-        /* わかりやすいようにプレースホルダーのスタイルを少し変える */
         color: #666;
         font-size: 0.9rem;
         text-align: center;

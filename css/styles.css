@@ -36,7 +36,7 @@
 
 /* メインのフォント、背景、文字色を指定 */
 body {
-    font-family: var(--font-family-serif); /* メインは明朝体ベース */
+    font-family: var(--font-family-serif);
     color: var(--color-white);
     background-color: var(--color-bg);
     line-height: 1.8;
@@ -67,7 +67,6 @@ a:hover {
 }
 
 .section h2 {
-    /* 明朝体の見出しを強調 */
     font-family: var(--font-family-serif);
     font-weight: 700;
 

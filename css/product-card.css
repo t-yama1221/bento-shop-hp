@@ -4,11 +4,11 @@
 .product-card {
     background-color: var(--color-surface);
     border-radius: 4px;
-    /* カード周囲の装飾を高級感のあるものに変更 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(255, 215, 0, 0.1); /* 目立たない薄いゴールドの枠 */
+    border: 1px solid rgba(255, 215, 0, 0.1);
     text-align: left;
+    overflow: hidden;
 }
 
 .product-card:hover {
@@ -16,23 +16,47 @@
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
 }
 
+.product-card__image-wrapper {
+    position: relative;
+    /* 画像のアスペクト比を3:2に固定するための指定 */
+    padding-top: 66.66%;
+    overflow: hidden;
+}
+
+.product-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* CSSで自動で親要素の幅に合わせて拡大・縮小 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像がはみ出しても比率を維持 */
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-card__image {
+    transform: scale(1.05);
+}
+
 .product-card__content {
     padding: var(--spacing-md);
 }
 
 .product-card__title {
+    font-family: var(--font-family-serif);
+    font-weight: 700;
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-gold); /* タイトルはゴールドで強調 */
+    color: var(--color-gold);
     letter-spacing: 0.05em;
     padding-bottom: var(--spacing-xs);
-    border-bottom: 2px solid var(--color-gold); /* ゴールドの区切り線 */
+    border-bottom: 2px solid var(--color-gold);
 }
 
 .product-card__price {
     font-size: 1.4rem;
     font-weight: 500;
-    color: var(--color-white); /* 価格は白で視認性を確保 */
+    color: var(--color-white);
     margin: var(--spacing-sm) 0;
 }
 
@@ -43,7 +67,7 @@
 
 .product-card__description {
     font-size: 0.95rem;
-    color: #ccc; /* 説明文は落ち着いた色 */
+    color: #ccc;
     min-height: 4.5em;
     margin-bottom: var(--spacing-md);
 }
@@ -51,10 +75,10 @@
 /* アクション・ステータスエリア (シンプル化) */
 .product-card__status-area {
     display: flex;
-    justify-content: flex-start; /* 左寄せに変更 */
+    justify-content: flex-start;
     align-items: center;
     padding-top: var(--spacing-md);
-    border-top: 1px dashed rgba(255, 215, 0, 0.5); /* ダッシュ線で高級感を出す */
+    border-top: 1px dashed rgba(255, 215, 0, 0.5);
 }
 
 /* ステータスバッジ */
@@ -64,8 +88,8 @@
     border-radius: 4px;
     font-weight: bold;
     color: var(--color-gold);
-    border: 1px solid var(--color-gold); /* ゴールドの枠線のみ */
-    background-color: rgba(255, 215, 0, 0.05); /* わずかなゴールド背景 */
+    border: 1px solid var(--color-gold);
+    background-color: rgba(255, 215, 0, 0.05);
 }
 
 /* 注文/予約ボタンは完全に非表示 */
@@ -84,7 +108,6 @@
     border-bottom-left-radius: 4px;
     font-weight: bold;
     z-index: 5;
-    /* 漢字一文字を強調するような和風デザイン */
     font-size: 1.1rem;
     letter-spacing: 0.1em;
 }
